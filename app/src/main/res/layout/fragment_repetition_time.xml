@@ -1,0 +1,222 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.adylanroaffa.lotnok.scheduledEvent.RepetitionTimeFragment"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <!-- TODO: Update blank fragment layout -->
+
+
+    <ImageButton
+        android:id="@+id/back_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="2dp"
+        android:src="@mipmap/back_image"
+        android:backgroundTint="#80FFFFFF"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="8dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="4dp"
+            android:text="Repetition "
+            android:textAlignment="center"
+            android:textColor="#bdbdbd"
+            android:textSize="30sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="4dp"
+            android:text="Add time"
+            android:textAlignment="center"
+            android:textColor="#bdbdbd"
+            android:textSize="16sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="10dp"></View>
+
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:padding="0dp">
+
+            <TextView
+                android:id="@+id/every"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="20dp"
+                android:text="Every"
+                android:textAlignment="center"
+                android:textColor="#bdbdbd"
+                android:textSize="21sp" />
+
+
+            <Spinner
+                android:id="@+id/day"
+                android:layout_width="180dp"
+                android:layout_height="40dp"
+                android:layout_centerVertical="true"
+                android:layout_marginBottom="32dp"
+                android:layout_marginLeft="40dp"
+                android:layout_toRightOf="@id/every"></Spinner>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            >
+
+            <TextView
+                android:id="@+id/on"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="20dp"
+                android:text="on"
+                android:textAlignment="center"
+                android:textColor="#bdbdbd"
+                android:textSize="21sp" />
+
+            <TimePicker
+                android:layout_width="230dp"
+                android:layout_height="80dp"
+                android:layout_gravity="center_horizontal"
+                android:timePickerMode="spinner"
+                android:descendantFocusability="blocksDescendants"
+                android:layout_toRightOf="@id/on">
+            </TimePicker>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="20dp"
+            android:layout_gravity="center_horizontal"
+            >
+
+            <TextView
+                android:id="@+id/for_"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="for"
+                android:textSize="21sp"
+                android:textColor="#bdbdbd"
+                android:textAlignment="center"
+                android:paddingRight="20dp"
+                android:layout_centerVertical="true"
+                />
+
+
+            <com.shawnlin.numberpicker.NumberPicker
+                android:id="@+id/hrs_picker"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:layout_toRightOf="@id/for_"
+                app:np_dividerColor="@color/gray_text"
+                app:np_min="0"
+                app:np_max="100"
+                app:np_dividerDistance="24dp"
+                app:np_textSize="14dp"
+                app:np_selectedTextSize="14dp"
+                app:np_wrapSelectorWheel="true"
+                android:paddingRight="10dp"/>
+
+            <TextView
+                android:id="@+id/hrs"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="HRS"
+                android:textSize="18sp"
+                android:textColor="#bdbdbd"
+                android:textAlignment="center"
+                android:layout_centerVertical="true"
+                android:paddingLeft="10dp"
+                android:layout_toRightOf="@id/hrs_picker"
+                />
+            <com.shawnlin.numberpicker.NumberPicker
+                android:id="@+id/mnt_picker"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:layout_toRightOf="@id/hrs"
+                app:np_dividerColor="@color/gray_text"
+                app:np_min="0"
+                app:np_max="59"
+                app:np_dividerDistance="24dp"
+                app:np_textSize="14dp"
+                app:np_selectedTextSize="14dp"
+                app:np_wrapSelectorWheel="true"
+                android:paddingRight="10dp"
+                android:layout_marginLeft="20dp"/>
+
+            <TextView
+                android:id="@+id/mnt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="MNT"
+                android:textSize="18sp"
+                android:textColor="#bdbdbd"
+                android:textAlignment="center"
+                android:layout_centerVertical="true"
+                android:paddingLeft="10dp"
+                android:layout_toRightOf="@id/mnt_picker"
+                />
+        </RelativeLayout>
+
+
+        <Button
+            android:id="@+id/add_details_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="16dp"
+            android:layout_marginLeft="32dp"
+            android:layout_marginRight="32dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/shape"
+            android:backgroundTint="@color/colorAccent"
+            android:text="Add details"
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp" />
+        <Button
+            android:id="@+id/next_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="16dp"
+            android:layout_marginLeft="32dp"
+            android:layout_marginRight="32dp"
+            android:background="@drawable/shape"
+            android:backgroundTint="@color/colorAccent"
+            android:text="Next"
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF"
+            android:textSize="24sp" />
+
+    </LinearLayout>
+
+</LinearLayout>

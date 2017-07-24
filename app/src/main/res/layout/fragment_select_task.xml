@@ -1,0 +1,92 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context="com.adylanroaffa.lotnok.SelectTaskFragment"
+    android:orientation="vertical">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <ImageButton
+        android:id="@+id/close_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="2dp"
+        android:src="@mipmap/closeimage"
+        android:backgroundTint="#80FFFFFF"/>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="8dp">
+        <TextView
+            android:layout_margin="8dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:textColor="#bdbdbd"
+            android:text="What kind of task would you like to add?"
+            android:textSize="26sp"
+            android:layout_gravity="center_horizontal"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="24dp">
+        </View>
+
+        <Button
+            android:id="@+id/one_time_button"
+            android:layout_marginLeft="32dp"
+            android:layout_marginRight="32dp"
+            android:layout_marginBottom="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/shape"
+            android:backgroundTint="@color/colorAccent"
+            android:text="One-time event"
+            android:textAllCaps="false"
+            android:textSize="24sp"
+            android:textColor="#FFFFFF"
+            />
+
+        <Button
+            android:id="@+id/scheduled_button"
+            android:layout_marginLeft="32dp"
+            android:layout_marginRight="32dp"
+            android:layout_marginBottom="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/shape"
+            android:backgroundTint="@color/colorAccent"
+            android:text="Scheduled event"
+            android:textSize="24sp"
+            android:textAllCaps="false"
+
+            android:textColor="#FFFFFF"
+            />
+
+        <Button
+            android:id="@+id/projects_button"
+            android:layout_marginLeft="32dp"
+            android:layout_marginRight="32dp"
+            android:layout_marginBottom="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/shape"
+            android:backgroundTint="@color/colorAccent"
+            android:textSize="24sp"
+            android:textAllCaps="false"
+            android:text="Tasks / projects"
+            android:textColor="#FFFFFF"
+            />
+    </LinearLayout>
+</LinearLayout>

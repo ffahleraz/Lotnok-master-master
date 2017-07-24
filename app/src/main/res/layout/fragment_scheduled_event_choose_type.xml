@@ -1,0 +1,101 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.adylanroaffa.lotnok.scheduledEvent.CreateScheduleFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+
+
+    <ImageButton
+        android:id="@+id/back_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="2dp"
+        android:src="@mipmap/back_image"
+        android:backgroundTint="#80FFFFFF"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="8dp">
+
+        <TextView
+            android:layout_margin="8dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:textAlignment="center"
+            android:textColor="#bdbdbd"
+            android:text="Create schedule"
+            android:textSize="30sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="20dp">
+        </View>
+
+        <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/radio_group"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:layout_gravity="center"
+            android:layout_marginLeft="32dp"
+            android:layout_marginRight="32dp"
+            android:layout_marginBottom="0dp"
+            android:orientation="vertical">
+            <RadioButton android:id="@+id/radio_daily"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Daily"
+                android:textColor="#505050"
+                android:buttonTint="@color/colorAccent"/>
+            <RadioButton android:id="@+id/radio_weekly"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Weekly"
+                android:textColor="#505050"
+                android:buttonTint="@color/colorAccent"/>
+            <RadioButton android:id="@+id/radio_monthly"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Monthly"
+                android:textColor="#505050"
+                android:buttonTint="@color/colorAccent"/>
+            <RadioButton android:id="@+id/radio_yearly"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Yearly"
+                android:textColor="#505050"
+                android:buttonTint="@color/colorAccent"/>
+        </RadioGroup>
+
+        <Button
+            android:id="@+id/confirm_button"
+            android:layout_marginLeft="32dp"
+            android:layout_marginRight="32dp"
+            android:layout_marginBottom="16dp"
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/shape"
+            android:backgroundTint="@color/colorAccent"
+            android:textSize="24sp"
+            android:textAllCaps="false"
+            android:text="Next"
+            android:textColor="#FFFFFF"
+            />
+
+    </LinearLayout>
+
+</LinearLayout>
