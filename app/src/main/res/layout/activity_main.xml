@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="#EFEFEF"
     tools:context="com.adylanroaffa.lotnok.MainActivity">
 
     <LinearLayout
@@ -14,86 +15,141 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#72D4FF"
+            android:layout_height="match_parent"
             android:orientation="vertical"
-            android:padding="8dp">
+            android:padding="0dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="end"
+                android:layout_height="50dp"
+                android:background="#72D4FF"
                 android:padding="8dp">
 
                 <TextView
-                    android:id="@+id/day_today"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:layout_margin="8dp"
-                    android:text="Date today!"
-                    android:textColor="#FFFFFF"
-                    android:textSize="24sp"
-                    android:textStyle="bold" />
+                    android:id="@+id/date_today"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:background="@drawable/circle"
+                    android:gravity="center_vertical"
+                    android:text="Title"
+                    android:textAlignment="center"
+                    android:textColor="#b4b4b4"
+                    android:textSize="14dp"
+                    android:textStyle="bold"
+                    />
 
                 <TextView
-                    android:id="@+id/date_today"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:background="@drawable/circle"
+                    android:id="@+id/textView3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="0dp"
+                    android:layout_weight="1"
                     android:gravity="center"
-                    android:text="Title"
-                    android:textAlignment="gravity"
-                    android:textColor="#b4b4b4"
-                    android:textSize="24dp"
+                    android:text="Timeline"
+                    android:textColor="#FFFFFF"
+                    android:textSize="24sp" />
 
-                    android:textStyle="bold"
-
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"><![CDATA[
                     />
+                ]]></RelativeLayout>
+
 
             </LinearLayout>
 
-            <TextView
-                android:id="@+id/task_label"
-                android:layout_width="wrap_content"
+            <!--Bagian kartu atas utama-->
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
-                android:background="@drawable/shape"
-                android:padding="10dp"
-                android:text="UNINITIALIZED"
-                android:textAllCaps="true"
-                android:textSize="14sp" />
+                android:paddingTop="2dp">
+                <android.support.v7.widget.CardView
+                    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    card_view:cardCornerRadius="22dp"
+                    card_view:cardElevation="5dp"
+                    android:layout_margin="2dp">
 
-            <TextView
-                android:id="@+id/deadline_label"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
-                android:background="@drawable/shape"
-                android:padding="10dp"
-                android:text="UNINITIALIZED"
-                android:textAllCaps="true"
-                android:textSize="14sp" />
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="170dp">
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="12dp"
+                            android:paddingTop="15dp"
+                            android:orientation="vertical">
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:text="Task Name"
+                                android:textSize="30sp"
+                                android:layout_marginBottom="8dp"/>
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:text="subtitle(?)"
+                                android:textSize="24sp"
+                                android:layout_marginBottom="4dp"/>
 
+                        </LinearLayout>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentBottom="true"
+                            android:layout_alignParentLeft="true"
+                            android:background="@drawable/shape"
+                            android:backgroundTint="#72D4FF"
+                            android:textColor="#FFFFFF"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            android:text="DUE IN BLABLA"/>
+                    </RelativeLayout>
+                </android.support.v7.widget.CardView>
+            </LinearLayout>
+            <!--Bagian kartu kecil bawah -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentLeft="true"
+                    android:orientation="vertical">
+                    <TextView
+                        android:id="@+id/textView2"
+                        android:layout_marginLeft="30dp"
+                        android:layout_width="3dp"
+                        android:layout_height="match_parent"
+                        android:background="#95989A"
+                        android:paddingLeft="1dp"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+                        <android.support.v7.widget.RecyclerView
+                            android:id="@+id/rv"
+                            android:paddingLeft="1dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="4" />
+                    </LinearLayout>
+                </RelativeLayout>
+            </LinearLayout>
         </LinearLayout>
-
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/rv"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="4" />
     </LinearLayout>
-
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/newTask_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
-        android:layout_margin="16dp"
+        android:layout_margin="15dp"
         android:backgroundTint="#72D4FF"
         android:src="@drawable/ic_add_black_24dp"
         android:tint="#FFFFFF"
         app:fabSize="normal" />
-
-
 </FrameLayout>
+

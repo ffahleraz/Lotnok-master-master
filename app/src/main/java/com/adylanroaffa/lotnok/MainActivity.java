@@ -51,10 +51,6 @@ public class MainActivity extends AppCompatActivity {
         TextView dateToday = (TextView) findViewById(R.id.date_today);
         dateToday.setText(""+date);
 
-        // set top month & day text
-        TextView dayToday = (TextView) findViewById(R.id.day_today);
-        dayToday.setText(format.format(calendar.getTime()));
-
         // load database
         FlowManager.init(new FlowConfig.Builder(this).build());
 
@@ -83,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
 
         tasks = new ArrayList<>();
 
-        /* Load data from database (kalo ude debug di uncomment lah ye)
+        /*/ Load data from database (kalo ude debug di uncomment lah ye)
         List<OneTimeDatabase> oneTimeDatas = new Select().from(OneTimeDatabase.class).queryList();
         for (OneTimeDatabase oneTimeData : oneTimeDatas) {
             tasks.add(new Task(oneTimeData.getName(), "Besok", "33 Jancok"));
@@ -96,15 +92,14 @@ public class MainActivity extends AppCompatActivity {
             oneTimeData.delete();
         }
 
-        updateLabels();
         updateRVAdapter();
 
     }
 
     private void updateData() {
 
-        List<OneTimeDatabase> oneTimeDataList = new Select().from(OneTimeDatabase.class).queryList();
-        for (OneTimeDatabase oneTimeData : oneTimeDataList) {
+        List<OneTimeDatabase> oneTimeDatas = new Select().from(OneTimeDatabase.class).queryList();
+        for (OneTimeDatabase oneTimeData : oneTimeDatas) {
 
             // get startTime as DateTime
             DateTime startTime = new DateTime();
@@ -114,21 +109,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         taskAdapter.notifyDataSetChanged();
-        updateLabels();
         updateRVAdapter();
-
-    }
-
-    private void updateLabels() {
-
-        // set tasks label
-        taskNum = tasks.size();
-        TextView taskTV = (TextView) findViewById(R.id.task_label);
-        taskTV.setText("YOU HAVE " + taskNum + " TASKS TODAY");
-
-        // set deadlines label
-        TextView deadlineTV = (TextView) findViewById(R.id.deadline_label);
-        deadlineTV.setText("YOU HAVE " + deadlineNum + " DEADLINES TODAY");
 
     }
 
