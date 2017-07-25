@@ -25,7 +25,7 @@ import com.prolificinteractive.materialcalendarview.OnDateSelectedListener;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class DatePickerStaticFragment extends Fragment {
+public class DatePickerScheduledFragment extends Fragment {
 
     private boolean canConfirm = false;
 
@@ -34,7 +34,7 @@ public class DatePickerStaticFragment extends Fragment {
     public String newCreationName;
     public DateTime newCreationStartTime = new DateTime();
 
-    public DatePickerStaticFragment() {
+    public DatePickerScheduledFragment() {
         // Required empty public constructor
     }
 
@@ -42,7 +42,7 @@ public class DatePickerStaticFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view =  inflater.inflate(R.layout.fragment_scheduled_event_date_picker_static, container, false);
+        View view =  inflater.inflate(R.layout.fragment_scheduled_event_date_picker, container, false);
 
         // resize the popup window
         resizePopup();

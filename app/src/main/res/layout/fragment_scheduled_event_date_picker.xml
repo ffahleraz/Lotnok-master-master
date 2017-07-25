@@ -1,0 +1,63 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.adylanroaffa.lotnok.SelectTaskFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <ImageButton
+            android:id="@+id/back_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="2dp"
+            android:src="@mipmap/back_image"
+            android:backgroundTint="#80FFFFFF"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp">
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="Pick a date"
+                android:layout_marginBottom="16dp"
+                android:textAlignment="center"
+                android:textColor="@color/gray_text"
+                android:textSize="26sp" />
+
+            <com.prolificinteractive.materialcalendarview.MaterialCalendarView
+                android:id="@+id/date_pic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:mcv_arrowColor="@color/gray_text"
+                app:mcv_leftArrowMask="@mipmap/back_image"
+                app:mcv_rightArrowMask="@mipmap/next_image"
+                app:mcv_selectionColor="@color/colorAccent"></com.prolificinteractive.materialcalendarview.MaterialCalendarView>
+
+        </LinearLayout>
+    </LinearLayout>
+    <Button
+        android:id="@+id/add_time_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_margin="16dp"
+        android:background="@drawable/shape"
+        android:backgroundTint="@color/colorAccent"
+        android:text="Add time"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp" />
+</RelativeLayout>

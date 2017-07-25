@@ -19,8 +19,6 @@ import com.raizlabs.android.dbflow.sql.language.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.adylanroaffa.lotnok.R.id.day;
-
 public class MainActivity extends AppCompatActivity {
 
     private List<Task> tasks;

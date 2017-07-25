@@ -44,6 +44,10 @@ public class ScheduledDatabase extends BaseModel {
     @Column
     int frequency;
 
+    // schedule day (for weekly schedule, 0 to 6)
+    @Column
+    int day;
+
     // get methods
 
     public int getId() { return this.id; }
@@ -62,6 +66,8 @@ public class ScheduledDatabase extends BaseModel {
 
     public int getFrequency() { return this.frequency; }
 
+    public int getDay() { return this.day; }
+
     // set methods
 
     public void setId(int id) { this.id = id; }
@@ -79,5 +85,7 @@ public class ScheduledDatabase extends BaseModel {
     public void setDone(boolean done) { this.done = done; }
 
     public void setFrequency(int frequency) { this.frequency = frequency; }
+
+    public void setDay(int day) { this.day = day; }
 
 }

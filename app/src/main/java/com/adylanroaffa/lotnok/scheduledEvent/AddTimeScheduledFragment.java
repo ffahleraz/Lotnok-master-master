@@ -1,48 +1,38 @@
 package com.adylanroaffa.lotnok.scheduledEvent;
 
-/**
- * Created by ffahleraz on 7/24/17.
- */
-
-import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.Spinner;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
 import com.adylanroaffa.lotnok.DateTime;
 import com.adylanroaffa.lotnok.PopupActivity;
 import com.adylanroaffa.lotnok.R;
-import com.adylanroaffa.lotnok.oneTimeEvent.AddDetailsFragment;
+import com.adylanroaffa.lotnok.scheduledEvent.AddDetailsScheduledFragment;
 
 import java.util.Date;
 
-public class AddDayTimeFragment extends Fragment {
+/**
+ * A simple {@link Fragment} subclass.
+ */
+public class AddTimeScheduledFragment extends Fragment {
 
-    private DateTime newCreationStartTime = new DateTime();
+    public DateTime newCreationStartTime = new DateTime();
     private DateTime newCreationEndTime = new DateTime();
-
     private TimePicker startTimePicker;
     private TimePicker endTimePicker;
-
-    private int selectedDay = 0;
-
-    private Spinner spinner;
 
     // new creation variables
     public String newCreationName;
     public int newCreationFrequency;
 
-    public AddDayTimeFragment() {
+    public AddTimeScheduledFragment() {
         // Required empty public constructor
     }
 
@@ -51,7 +41,7 @@ public class AddDayTimeFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_scheduled_event_add_day_time, container, false);
+        View view = inflater.inflate(R.layout.fragment_scheduled_event_add_time, container, false);
 
         //RESIZE POPUP
         ((PopupActivity)getActivity()).resizePopup();
@@ -64,32 +54,6 @@ public class AddDayTimeFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 getFragmentManager().popBackStackImmediate();
-            }
-        });
-
-        /*
-        * DAY SPINNER
-        * */
-        spinner = (Spinner) view.findViewById(R.id.day_spinner);
-
-        // specify items
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getActivity(),
-                R.array.day_array, android.R.layout.simple_spinner_item);
-
-        // Specify the layout to use when the list of choices appears
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
-        // Apply the adapter to the spinner
-        spinner.setAdapter(adapter);
-        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            public void onItemSelected(AdapterView<?> parent, View view,
-                                       int position, long id) {
-                selectedDay = position;
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
             }
         });
 
@@ -113,7 +77,7 @@ public class AddDayTimeFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                AddDetailsScheduledFragment addDetailsScheduledFragment = new AddDetailsScheduledFragment();
+                AddDetailsScheduledFragment addDetailsFragment = new AddDetailsScheduledFragment();
 
                 // resolve new time data
                 newCreationStartTime.setHour(startTimePicker.getHour());
@@ -128,14 +92,12 @@ public class AddDayTimeFragment extends Fragment {
                 // pass data for new one time event
                 if (newCreationStartTime.getByDate().before(newCreationEndTime.getByDate())) {
 
-                    addDetailsScheduledFragment.newCreationName = newCreationName;
-                    addDetailsScheduledFragment.newCreationStartTime = newCreationStartTime;
-                    addDetailsScheduledFragment.newCreationEndTime = newCreationEndTime;
-                    addDetailsScheduledFragment.newCreationFrequency = newCreationFrequency;
-                    addDetailsScheduledFragment.newCreationDay = selectedDay;
+                    addDetailsFragment.newCreationName = newCreationName;
+                    addDetailsFragment.newCreationStartTime = newCreationStartTime;
+                    addDetailsFragment.newCreationEndTime = newCreationEndTime;
 
                     FragmentManager fragmentManager = getFragmentManager();
-                    fragmentManager.beginTransaction().replace(R.id.container,addDetailsScheduledFragment).addToBackStack(null).commit();
+                    fragmentManager.beginTransaction().replace(R.id.container,addDetailsFragment).addToBackStack(null).commit();
 
                 } else {
                     Toast.makeText(getContext(),"End time must be after start time.",Toast.LENGTH_SHORT).show();

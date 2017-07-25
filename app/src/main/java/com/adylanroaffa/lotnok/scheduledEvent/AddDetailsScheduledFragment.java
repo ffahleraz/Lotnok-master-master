@@ -17,6 +17,7 @@ import android.widget.ImageButton;
 import com.adylanroaffa.lotnok.DateTime;
 import com.adylanroaffa.lotnok.R;
 import com.adylanroaffa.lotnok.database.OneTimeDatabase;
+import com.adylanroaffa.lotnok.database.ScheduledDatabase;
 
 import java.util.Date;
 
@@ -87,17 +88,16 @@ public class AddDetailsScheduledFragment extends Fragment {
                 getActivity().getWindow().setLayout((int)(width*0.6),(int)(height*0.4));
                 //getActivity().finish();
 
-                /*/ ADD NEW ONE-TIME EVENT TO DATABASE
-                OneTimeDatabase newOneTimeData = new OneTimeDatabase();
-                newOneTimeData.setId(1);
-                newOneTimeData.setName(newCreationName);
-                newOneTimeData.setStartTime(newCreationStartTime.getByDate());
-                newOneTimeData.setEndTime(newCreationEndTime.getByDate());
-                newOneTimeData.setNotes(locET.getText().toString());
-                newOneTimeData.setLoc(notesET.getText().toString());
-                newOneTimeData.setDone(false);
-                newOneTimeData.save();
-                /*/
+                // ADD NEW SCHEDULED EVENT TO DATABASE
+                ScheduledDatabase newScheduledData = new ScheduledDatabase();
+                newScheduledData.setId(1);
+                newScheduledData.setName(newCreationName);
+                newScheduledData.setStartTime(newCreationStartTime.getByDate());
+                newScheduledData.setEndTime(newCreationEndTime.getByDate());
+                newScheduledData.setNotes(locET.getText().toString());
+                newScheduledData.setLoc(notesET.getText().toString());
+                newScheduledData.setFrequency(newCreationFrequency);
+                newScheduledData.setDay(newCreationDay);
 
             }
         });
@@ -117,4 +117,3 @@ public class AddDetailsScheduledFragment extends Fragment {
         getActivity().getWindow().setLayout((int)(width*0.9),(int)(height*0.6));
     }
 }
-

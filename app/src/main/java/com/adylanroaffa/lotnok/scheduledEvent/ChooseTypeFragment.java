@@ -93,14 +93,48 @@ public class ChooseTypeFragment extends Fragment {
 
                 if (canConfirm) {
 
-                    AddDayTimeFragment addDayTimeFragment = new AddDayTimeFragment();
+                    switch(newCreationFrequency) {
+                        case 0:
+                            AddTimeScheduledFragment addTimeScheduledFragment = new AddTimeScheduledFragment();
 
-                    // pass data for new one time event
-                    addDayTimeFragment.newCreationName = newCreationName;
-                    addDayTimeFragment.newCreationFrequency = newCreationFrequency;
+                            // pass data for new scheduled event
+                            addTimeScheduledFragment.newCreationName = newCreationName;
+                            addTimeScheduledFragment.newCreationFrequency = newCreationFrequency;
 
-                    FragmentManager fragmentManager = getFragmentManager();
-                    fragmentManager.beginTransaction().replace(R.id.container, addDayTimeFragment).addToBackStack(null).commit();
+                            FragmentManager fragmentManager0 = getFragmentManager();
+                            fragmentManager0.beginTransaction().replace(R.id.container, addTimeScheduledFragment).addToBackStack(null).commit();
+                            break;
+                        case 1:
+                            AddDayTimeFragment addDayTimeFragment = new AddDayTimeFragment();
+
+                            // pass data for new scheduled event
+                            addDayTimeFragment.newCreationName = newCreationName;
+                            addDayTimeFragment.newCreationFrequency = newCreationFrequency;
+
+                            FragmentManager fragmentManager1 = getFragmentManager();
+                            fragmentManager1.beginTransaction().replace(R.id.container, addDayTimeFragment).addToBackStack(null).commit();
+                            break;
+                        case 2:
+                            DatePickerStaticFragment datePickerStaticFragment = new DatePickerStaticFragment();
+
+                            // pass data for new scheduled event
+                            datePickerStaticFragment.newCreationName = newCreationName;
+                            datePickerStaticFragment.newCreationFrequency = newCreationFrequency;
+
+                            FragmentManager fragmentManager2 = getFragmentManager();
+                            fragmentManager2.beginTransaction().replace(R.id.container, datePickerStaticFragment).addToBackStack(null).commit();
+                            break;
+                        case 3:
+                            DatePickerScheduledFragment datePickerScheduledFragment = new DatePickerScheduledFragment();
+
+                            // pass data for new scheduled event
+                            datePickerScheduledFragment.newCreationName = newCreationName;
+                            datePickerScheduledFragment.newCreationFrequency = newCreationFrequency;
+
+                            FragmentManager fragmentManager3 = getFragmentManager();
+                            fragmentManager3.beginTransaction().replace(R.id.container, datePickerScheduledFragment).addToBackStack(null).commit();
+                            break;
+                    }
 
                 } else {
                     Toast.makeText(getContext(),"Please select event frequency.",Toast.LENGTH_SHORT).show();
