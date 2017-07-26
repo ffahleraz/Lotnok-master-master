@@ -51,6 +51,7 @@ public class DatePickerStaticFragment extends Fragment {
         * MATERIAL CALENDAR VIEW
         * */
         MaterialCalendarView mcv = (MaterialCalendarView) view.findViewById(R.id.date_pic);
+        //mcv.setTopbarVisible(false);
         mcv.setOnDateChangedListener(new OnDateSelectedListener() {
             @Override
             public void onDateSelected(@NonNull MaterialCalendarView widget, @NonNull CalendarDay date, boolean selected) {

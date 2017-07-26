@@ -83,7 +83,6 @@ public class AddDetailsFragment extends Fragment {
 
                 // ADD NEW ONE-TIME EVENT TO DATABASE
                 OneTimeDatabase newOneTimeData = new OneTimeDatabase();
-                newOneTimeData.setId(1);
                 newOneTimeData.setName(newCreationName);
                 newOneTimeData.setStartTime(newCreationStartTime.getByDate());
                 newOneTimeData.setEndTime(newCreationEndTime.getByDate());

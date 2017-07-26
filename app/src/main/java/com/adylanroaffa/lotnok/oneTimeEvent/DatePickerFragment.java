@@ -50,6 +50,8 @@ public class DatePickerFragment extends Fragment {
         * MATERIAL CALENDAR VIEW
         * */
         MaterialCalendarView mcv = (MaterialCalendarView) view.findViewById(R.id.date_pic);
+        //Date today = new Date();
+        //mcv.state().edit().setMinimumDate(CalendarDay.from(today));
         mcv.setOnDateChangedListener(new OnDateSelectedListener() {
             @Override
             public void onDateSelected(@NonNull MaterialCalendarView widget, @NonNull CalendarDay date, boolean selected) {

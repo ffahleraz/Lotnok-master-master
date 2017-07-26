@@ -13,7 +13,7 @@ public class ScheduledDatabase extends BaseModel {
 
     // data key
     @Column
-    @PrimaryKey
+    @PrimaryKey (autoincrement = true)
     int id;
 
     // event name
@@ -36,17 +36,17 @@ public class ScheduledDatabase extends BaseModel {
     @Column
     String loc;
 
-    // event completion
-    @Column
-    boolean done = false;
-
     // schedule frequency (0 for daily, 1 for weekly, 2 for monthly, 3 for yearly)
     @Column
     int frequency;
 
     // schedule day (for weekly schedule, 0 to 6)
     @Column
-    int day;
+    int day = -1;
+
+    // event completion
+    @Column
+    boolean done = false;
 
     // get methods
 
@@ -62,11 +62,11 @@ public class ScheduledDatabase extends BaseModel {
 
     public String getLoc() { return this.loc; }
 
-    public boolean getDone() { return this.done; }
-
     public int getFrequency() { return this.frequency; }
 
     public int getDay() { return this.day; }
+
+    public boolean getDone() { return this.done; }
 
     // set methods
 
@@ -82,10 +82,10 @@ public class ScheduledDatabase extends BaseModel {
 
     public void setLoc(String loc) { this.loc = loc; }
 
-    public void setDone(boolean done) { this.done = done; }
-
     public void setFrequency(int frequency) { this.frequency = frequency; }
 
     public void setDay(int day) { this.day = day; }
+
+    public void setDone(boolean done) { this.done = done; }
 
 }

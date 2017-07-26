@@ -42,7 +42,7 @@ public class AddDetailsScheduledFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_one_time_add_details, container, false);
+        View view = inflater.inflate(R.layout.fragment_scheduled_event_add_details, container, false);
 
         // Resize popup
         resizePopup();
@@ -90,7 +90,6 @@ public class AddDetailsScheduledFragment extends Fragment {
 
                 // ADD NEW SCHEDULED EVENT TO DATABASE
                 ScheduledDatabase newScheduledData = new ScheduledDatabase();
-                newScheduledData.setId(1);
                 newScheduledData.setName(newCreationName);
                 newScheduledData.setStartTime(newCreationStartTime.getByDate());
                 newScheduledData.setEndTime(newCreationEndTime.getByDate());
@@ -98,6 +97,9 @@ public class AddDetailsScheduledFragment extends Fragment {
                 newScheduledData.setLoc(notesET.getText().toString());
                 newScheduledData.setFrequency(newCreationFrequency);
                 newScheduledData.setDay(newCreationDay);
+                newScheduledData.setDone(false);
+                newScheduledData.save();
+                //
 
             }
         });

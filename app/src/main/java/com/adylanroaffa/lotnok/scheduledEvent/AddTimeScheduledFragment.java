@@ -77,7 +77,7 @@ public class AddTimeScheduledFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                AddDetailsScheduledFragment addDetailsFragment = new AddDetailsScheduledFragment();
+                AddDetailsScheduledFragment addDetailsScheduledFragment = new AddDetailsScheduledFragment();
 
                 // resolve new time data
                 newCreationStartTime.setHour(startTimePicker.getHour());
@@ -92,12 +92,13 @@ public class AddTimeScheduledFragment extends Fragment {
                 // pass data for new one time event
                 if (newCreationStartTime.getByDate().before(newCreationEndTime.getByDate())) {
 
-                    addDetailsFragment.newCreationName = newCreationName;
-                    addDetailsFragment.newCreationStartTime = newCreationStartTime;
-                    addDetailsFragment.newCreationEndTime = newCreationEndTime;
+                    addDetailsScheduledFragment.newCreationName = newCreationName;
+                    addDetailsScheduledFragment.newCreationStartTime = newCreationStartTime;
+                    addDetailsScheduledFragment.newCreationEndTime = newCreationEndTime;
+                    addDetailsScheduledFragment.newCreationFrequency = newCreationFrequency;
 
                     FragmentManager fragmentManager = getFragmentManager();
-                    fragmentManager.beginTransaction().replace(R.id.container,addDetailsFragment).addToBackStack(null).commit();
+                    fragmentManager.beginTransaction().replace(R.id.container,addDetailsScheduledFragment).addToBackStack(null).commit();
 
                 } else {
                     Toast.makeText(getContext(),"End time must be after start time.",Toast.LENGTH_SHORT).show();

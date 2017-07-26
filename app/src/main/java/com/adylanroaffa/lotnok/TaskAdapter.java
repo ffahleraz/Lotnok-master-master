@@ -24,16 +24,19 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskViewHolder
 
         CardView cv;
         TextView taskName;
-        TextView dateToday;
-        TextView taskDeadline;
-        TextView timeLeft;
+        TextView taskNotes;
+        TextView taskLoc;
+        TextView taskStartTime;
+        TextView taskEndTime;
 
         TaskViewHolder(View itemView){
             super(itemView);
             cv = (CardView) itemView.findViewById(R.id.card_view);
             taskName = (TextView) itemView.findViewById(R.id.task_name);
-            taskDeadline = (TextView) itemView.findViewById(R.id.task_deadline);
-            timeLeft = (TextView) itemView.findViewById(R.id.time_left);
+            taskNotes = (TextView) itemView.findViewById(R.id.task_notes);
+            taskLoc = (TextView) itemView.findViewById(R.id.task_loc);
+            taskStartTime = (TextView) itemView.findViewById(R.id.task_start);
+            taskEndTime = (TextView) itemView.findViewById(R.id.task_end);
         }
 
     }
@@ -49,7 +52,6 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskViewHolder
         super.onAttachedToRecyclerView(recyclerView);
     }
 
-
     @Override
     public TaskViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         View v = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.card_layout, viewGroup,false);
@@ -59,9 +61,11 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskViewHolder
 
     @Override
     public void onBindViewHolder(TaskViewHolder holder, int i) {
-        holder.taskName.setText(""+tasks.get(i).mTaskName);
-        holder.taskDeadline.setText(""+tasks.get(i).mTaskDeadline);
-        holder.timeLeft.setText(""+tasks.get(i).mTimeLeft);
+        holder.taskName.setText(""+tasks.get(i).taskName);
+        holder.taskNotes.setText(""+tasks.get(i).taskNotes);
+        holder.taskLoc.setText(""+tasks.get(i).taskLoc);
+        holder.taskStartTime.setText(""+tasks.get(i).taskStartTime.print());
+        holder.taskEndTime.setText(""+tasks.get(i).taskEndTime.print());
     }
 
     @Override

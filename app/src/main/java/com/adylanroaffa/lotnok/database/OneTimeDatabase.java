@@ -13,7 +13,7 @@ public class OneTimeDatabase extends BaseModel {
 
     // data key
     @Column
-    @PrimaryKey
+    @PrimaryKey (autoincrement = true)
     int id;
 
     // event name

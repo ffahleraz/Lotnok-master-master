@@ -59,7 +59,23 @@
                         android:textSize="20sp"
                         android:layout_marginBottom="8dp"/>
                     <TextView
-                        android:id="@+id/task_deadline"
+                        android:id="@+id/task_notes"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        tools:text="subtitle(?)"
+                        android:textSize="12sp"
+
+                        android:layout_marginBottom="8dp"/>
+                    <TextView
+                        android:id="@+id/task_loc"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        tools:text="subtitle(?)"
+                        android:textSize="12sp"
+
+                        android:layout_marginBottom="8dp"/>
+                    <TextView
+                        android:id="@+id/task_end"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         tools:text="subtitle(?)"
@@ -69,7 +85,7 @@
 
                 </LinearLayout>
                 <TextView
-                    android:id="@+id/time_left"
+                    android:id="@+id/task_start"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="8dp"
