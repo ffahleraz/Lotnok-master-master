@@ -8,12 +8,10 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.adylanroaffa.lotnok.DateTime;
 import com.adylanroaffa.lotnok.database.OneTimeDatabase;
 import com.adylanroaffa.lotnok.database.ScheduledDatabase;
 import com.raizlabs.android.dbflow.config.*;
@@ -21,7 +19,6 @@ import com.raizlabs.android.dbflow.sql.language.*;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
@@ -296,7 +293,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         /**
-         *  TODO : sort tasks list by start date, and remove tasks that has passed
+         *  Sort tasks list by start date, and remove tasks that has passed
           */
         Collections.sort(tasks);
         Date now = new Date();

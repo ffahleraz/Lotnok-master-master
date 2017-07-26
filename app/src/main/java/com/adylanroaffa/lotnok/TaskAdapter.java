@@ -33,9 +33,9 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskViewHolder
             super(itemView);
             cv = (CardView) itemView.findViewById(R.id.card_view);
             taskName = (TextView) itemView.findViewById(R.id.task_name);
-            taskNotes = (TextView) itemView.findViewById(R.id.task_notes);
+            taskNotes = (TextView) itemView.findViewById(R.id .task_notes);
             taskLoc = (TextView) itemView.findViewById(R.id.task_loc);
-            taskStartTime = (TextView) itemView.findViewById(R.id.task_start);
+            taskStartTime = (TextView) itemView.findViewById(R.id.task_start_time);
             taskEndTime = (TextView) itemView.findViewById(R.id.task_end);
         }
 
@@ -61,11 +61,11 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskViewHolder
 
     @Override
     public void onBindViewHolder(TaskViewHolder holder, int i) {
-        holder.taskName.setText(""+tasks.get(i).taskName);
-        holder.taskNotes.setText(""+tasks.get(i).taskNotes);
-        holder.taskLoc.setText(""+tasks.get(i).taskLoc);
-        holder.taskStartTime.setText(""+tasks.get(i).taskStartTime.print());
-        holder.taskEndTime.setText(""+tasks.get(i).taskEndTime.print());
+        holder.taskName.setText("" + tasks.get(i).taskName);
+        holder.taskNotes.setText("" + tasks.get(i).taskNotes);
+        holder.taskLoc.setText("" + tasks.get(i).taskLoc);
+        holder.taskStartTime.setText("" + String.format("%02d", tasks.get(i).taskStartTime.getHour()) + ":" + String.format("%02d", tasks.get(i).taskStartTime.getMinute()));
+        holder.taskEndTime.setText("" + tasks.get(i).taskEndTime.print());
     }
 
     @Override
