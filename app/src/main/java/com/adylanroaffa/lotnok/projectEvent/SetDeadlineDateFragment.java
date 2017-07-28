@@ -1,4 +1,4 @@
-package com.adylanroaffa.lotnok.oneTimeEvent;
+package com.adylanroaffa.lotnok.projectEvent;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -12,36 +12,36 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
-import java.util.Date;
-
 import com.adylanroaffa.lotnok.DateTime;
-import com.adylanroaffa.lotnok.scheduledEvent.ChooseTypeFragment;
+import com.adylanroaffa.lotnok.R;
+import com.adylanroaffa.lotnok.oneTimeEvent.AddTimeFragment;
 import com.prolificinteractive.materialcalendarview.CalendarDay;
 import com.prolificinteractive.materialcalendarview.MaterialCalendarView;
-
-import com.adylanroaffa.lotnok.R;
 import com.prolificinteractive.materialcalendarview.OnDateSelectedListener;
+
+import java.util.Date;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class DatePickerFragment extends Fragment {
+public class SetDeadlineDateFragment extends Fragment {
 
     private boolean canConfirm = false;
 
     // new creation variables
     public String newCreationName;
-    public DateTime newCreationStartTime = new DateTime();
+    private DateTime newCreationDeadline = new DateTime();
 
-    public DatePickerFragment() {
+    public SetDeadlineDateFragment() {
         // Required empty public constructor
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
         // Inflate the layout for this fragment
-        View view =  inflater.inflate(R.layout.fragment_one_time_date_picker, container, false);
+        View view =  inflater.inflate(R.layout.fragment_project_set_deadline_date, container, false);
 
         // resize the popup window
         resizePopup();
@@ -56,7 +56,7 @@ public class DatePickerFragment extends Fragment {
             @Override
             public void onDateSelected(@NonNull MaterialCalendarView widget, @NonNull CalendarDay date, boolean selected) {
                 canConfirm = true;
-                newCreationStartTime.setByDate(date.getDate());
+                newCreationDeadline.setByDate(date.getDate());
             }
         });
 
@@ -81,14 +81,14 @@ public class DatePickerFragment extends Fragment {
 
                 if (canConfirm) {
 
-                    AddTimeFragment addTimeFragment = new AddTimeFragment();
+                    SetDeadlineTimeFragment setDeadlineTimeFragment = new SetDeadlineTimeFragment();
 
                     // pass data for new one time event
-                    addTimeFragment.newCreationName = newCreationName;
-                    addTimeFragment.newCreationStartTime = newCreationStartTime;
+                    setDeadlineTimeFragment.newCreationName = newCreationName;
+                    setDeadlineTimeFragment.newCreationDeadline = newCreationDeadline;
 
                     FragmentManager fragmentManager = getFragmentManager();
-                    fragmentManager.beginTransaction().replace(R.id.container, addTimeFragment).addToBackStack(null).commit();
+                    fragmentManager.beginTransaction().replace(R.id.container, setDeadlineTimeFragment).addToBackStack(null).commit();
 
                 } else {
                     Toast.makeText(getContext(),"Please select a date.",Toast.LENGTH_SHORT).show();
@@ -111,4 +111,5 @@ public class DatePickerFragment extends Fragment {
 
         getActivity().getWindow().setLayout((int)(width*0.9),(int)(height*0.85));
     }
+
 }

@@ -22,13 +22,13 @@ import java.util.Date;
  */
 public class AddTimeFragment extends Fragment {
 
-    public DateTime newCreationStartTime;
-    private DateTime newCreationEndTime = new DateTime();
     private TimePicker startTimePicker;
     private TimePicker endTimePicker;
 
     // new creation variables
     public String newCreationName;
+    public DateTime newCreationStartTime;
+    private DateTime newCreationEndTime = new DateTime();
 
     public AddTimeFragment() {
         // Required empty public constructor

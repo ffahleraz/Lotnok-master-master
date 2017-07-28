@@ -1,0 +1,92 @@
+<!-- A CardView that contains a TextView -->
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/card_view"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    card_view:cardCornerRadius="12dp"
+    card_view:cardElevation="2dp"
+    android:layout_margin="8dp"
+    card_view:cardBackgroundColor="@color/colorPrimary"
+    >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:backgroundTint="@color/white"></Spinner>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:gravity="center"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:weightSum="1">
+                    <TextView
+                        android:layout_margin="8dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:text="From"
+                        android:textSize="16sp" />
+
+                    <TimePicker
+                        android:id="@+id/from_time"
+                        android:layout_width="175dp"
+                        android:layout_height="75dp"
+                        android:layout_gravity="center"
+                        android:descendantFocusability="blocksDescendants"
+                        android:timePickerMode="spinner"
+                        android:numbersBackgroundColor="@color/white"
+                        />
+                </LinearLayout>
+
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:weightSum="1">
+                <TextView
+                    android:layout_margin="8dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:text="Until"
+                    android:textSize="16sp" />
+
+                <TimePicker
+                    android:id="@+id/until_time"
+                    android:layout_width="175dp"
+                    android:layout_height="75dp"
+                    android:layout_gravity="center"
+                    android:descendantFocusability="blocksDescendants"
+                    android:timePickerMode="spinner"
+                    android:numbersBackgroundColor="@color/white"
+                    />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</android.support.v7.widget.CardView>

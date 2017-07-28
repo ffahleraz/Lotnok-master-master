@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 
 import com.adylanroaffa.lotnok.oneTimeEvent.OneTimeFragment;
+import com.adylanroaffa.lotnok.projectEvent.ProjectEventFragment;
 import com.adylanroaffa.lotnok.scheduledEvent.ScheduledEventFragment;
 
 
@@ -66,8 +67,9 @@ public class SelectTaskFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                // TODO
-
+                ProjectEventFragment projectEventFragment= new ProjectEventFragment();
+                FragmentManager fragmentManager = getFragmentManager();
+                fragmentManager.beginTransaction().replace(R.id.container,projectEventFragment).addToBackStack(null).commit();
             }
         });
 
