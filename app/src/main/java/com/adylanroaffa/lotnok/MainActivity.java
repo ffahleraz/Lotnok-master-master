@@ -1,6 +1,7 @@
 package com.adylanroaffa.lotnok;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.icu.text.SimpleDateFormat;
 import android.icu.util.Calendar;
 import android.os.Bundle;
@@ -14,6 +15,7 @@ import android.widget.Toast;
 
 import com.adylanroaffa.lotnok.database.OneTimeDatabase;
 import com.adylanroaffa.lotnok.database.ScheduledDatabase;
+import com.adylanroaffa.lotnok.database.TimeTableDatabase;
 import com.raizlabs.android.dbflow.config.*;
 import com.raizlabs.android.dbflow.sql.language.*;
 
@@ -51,8 +53,28 @@ public class MainActivity extends AppCompatActivity {
         rv.setLayoutManager(llm);
         rv.setHasFixedSize(true);
 
+        //set type font
+        TextView timeline =(TextView) findViewById(R.id.timeline);
+        timeline.setTypeface(Typeface.createFromAsset(getAssets(),"fonts/avenir-light.ttf"));
+
+        TextView upComingTaskName =(TextView) findViewById(R.id.upcoming_task_name);
+        upComingTaskName.setTypeface(Typeface.createFromAsset(getAssets(),"fonts/avenir-light.ttf"));
+
+        TextView upComingTaskDeadline =(TextView) findViewById(R.id.upcoming_task_deadline);
+        upComingTaskDeadline.setTypeface(Typeface.createFromAsset(getAssets(),"fonts/avenir-light.ttf"));
+
+        TextView upNext =(TextView) findViewById(R.id.up_next);
+        upNext.setTypeface(Typeface.createFromAsset(getAssets(),"fonts/DIN Regular.ttf"));
+
+        TextView location =(TextView) findViewById(R.id.Tag_Location);
+        location.setTypeface(Typeface.createFromAsset(getAssets(),"fonts/DIN Regular.ttf"));
+
+        TextView upComingTaskDeadlineTime =(TextView) findViewById(R.id.upcoming_task_deadline_time);
+        upComingTaskDeadlineTime.setTypeface(Typeface.createFromAsset(getAssets(),"fonts/DIN Regular.ttf"));
+
         // set top date circle text
         TextView dateToday = (TextView) findViewById(R.id.date_today);
+        dateToday.setTypeface(Typeface.createFromAsset(getAssets(),"fonts/avenir-light.ttf"));
         dateToday.setText(""+date);
 
         // load database
@@ -304,6 +326,22 @@ public class MainActivity extends AppCompatActivity {
                 iter.remove();
             }
         }
+
+        /**
+         *  Add tasks timetable to a database
+         */
+        /*/ Delete all data in database
+        List<TimeTableDatabase> oneTimeDatas = new Select().from(OneTimeDatabase.class).queryList();
+        for (OneTimeDatabase oneTimeData : oneTimeDatas) {
+            oneTimeData.delete();
+        }
+
+        // Fill database with new data
+        List<ScheduledDatabase> scheduledDatas = new Select().from(ScheduledDatabase.class).queryList();
+        for (ScheduledDatabase scheduledData : scheduledDatas) {
+            scheduledData.delete();
+        }
+        /*/
 
         /**
          *  Refresh task adapter data

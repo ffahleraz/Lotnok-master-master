@@ -1,6 +1,7 @@
 package com.adylanroaffa.lotnok;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -30,6 +31,7 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskViewHolder
         TextView taskEndTime;
 
         TaskViewHolder(View itemView){
+
             super(itemView);
             cv = (CardView) itemView.findViewById(R.id.card_view);
             taskName = (TextView) itemView.findViewById(R.id.task_name);
@@ -37,6 +39,22 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskViewHolder
             taskLoc = (TextView) itemView.findViewById(R.id.task_loc);
             taskStartTime = (TextView) itemView.findViewById(R.id.task_start_time);
             taskEndTime = (TextView) itemView.findViewById(R.id.task_end);
+
+            taskName = (TextView) itemView.findViewById(R.id.task_name);
+            taskName.setTypeface(Typeface.createFromAsset(itemView.getContext().getAssets(), "fonts/avenir-light.ttf"));
+
+            taskNotes = (TextView) itemView.findViewById(R.id .task_notes);
+            taskNotes.setTypeface(Typeface.createFromAsset(itemView.getContext().getAssets(), "fonts/avenir-light.ttf"));
+
+            taskLoc = (TextView) itemView.findViewById(R.id.task_loc);
+            taskLoc.setTypeface(Typeface.createFromAsset(itemView.getContext().getAssets(), "fonts/avenir-light.ttf"));
+
+            taskStartTime = (TextView) itemView.findViewById(R.id.task_start_time);
+            taskStartTime.setTypeface(Typeface.createFromAsset(itemView.getContext().getAssets(), "fonts/DIN Regular.ttf"));
+
+            taskEndTime = (TextView) itemView.findViewById(R.id.task_end);
+            taskEndTime.setTypeface(Typeface.createFromAsset(itemView.getContext().getAssets(), "fonts/avenir-light.ttf"));
+
         }
 
     }

@@ -32,7 +32,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="60dp"
                 android:background="#72D4FF">
 
                 <RelativeLayout
@@ -41,28 +41,28 @@
 
                     <TextView
                         android:id="@+id/date_today"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentLeft="true"
+                        android:layout_marginBottom="8dp"
+                        android:layout_marginLeft="10dp"
                         android:background="@drawable/circle"
                         android:gravity="center_vertical"
                         android:text="Title"
-                        android:layout_alignParentLeft="true"
-                        android:layout_alignParentBottom="true"
-                        android:layout_marginBottom="5dp"
-                        android:layout_marginLeft="6dp"
                         android:textAlignment="center"
                         android:textColor="#b4b4b4"
-                        android:textSize="14dp"
-                        android:textStyle="bold" />
+                        android:textSize="24dp" />
 
                     <TextView
-                        android:id="@+id/textView3"
+                        android:id="@+id/timeline"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:gravity="center_horizontal"
                         android:layout_alignParentBottom="true"
-                        android:paddingBottom="8dp"
+                        android:gravity="center_horizontal"
+                        android:paddingBottom="12dp"
                         android:text="Timeline"
+                        android:textStyle="bold"
                         android:textColor="#FFFFFF"
                         android:textSize="24sp" />
                 </RelativeLayout>
@@ -73,8 +73,8 @@
                 android:id="@+id/up_next_card"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingTop="2dp"
-                android:paddingLeft="2dp">
+                android:paddingLeft="2dp"
+                android:paddingTop="6dp">
 
                 <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
                     android:layout_width="match_parent"
@@ -85,20 +85,20 @@
 
                     <RelativeLayout
                         android:layout_width="match_parent"
-                        android:layout_height="200dp">
+                        android:layout_height="220dp">
 
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:orientation="vertical"
-                            android:paddingLeft="19dp"
-                            android:paddingTop="20dp">
+                            android:paddingLeft="26dp"
+                            android:paddingTop="30dp">
 
                             <TextView
                                 android:id="@+id/upcoming_task_name"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                android:layout_marginBottom="8dp"
+                                android:layout_marginBottom="5dp"
                                 android:text="Task Name"
                                 android:textSize="30sp" />
 
@@ -107,9 +107,9 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:layout_marginBottom="9dp"
-                                android:layout_marginTop="6dp"
+                                android:layout_marginTop="4dp"
                                 android:text="subtitle(?)"
-                                android:textSize="24sp" />
+                                android:textSize="20sp" />
 
                         </LinearLayout>
 
@@ -117,18 +117,18 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:paddingBottom="0dp"
-                            android:paddingLeft="1dp">
+                            android:paddingLeft="0dp">
 
                             <!-- add bg -->
                             <TextView
                                 android:id="@+id/up_next"
                                 android:layout_width="150dp"
-                                android:layout_height="46dp"
+                                android:layout_height="44dp"
                                 android:layout_alignParentBottom="true"
                                 android:layout_alignParentLeft="true"
                                 android:background="@drawable/oval_rect"
                                 android:backgroundTint="#72D4FF"
-                                android:paddingBottom="10dp"
+                                android:paddingBottom="4dp"
                                 android:paddingLeft="54dp"
                                 android:paddingRight="15dp"
                                 android:paddingTop="10dp"
@@ -138,20 +138,21 @@
                                 android:textStyle="bold" />
 
                             <TextView
-                                android:layout_width="46dp"
-                                android:layout_height="46dp"
+                                android:id="@+id/upcoming_task_deadline_time"
+                                android:layout_width="45dp"
+                                android:layout_height="45dp"
                                 android:layout_alignBottom="@id/up_next"
                                 android:layout_alignLeft="@id/up_next"
                                 android:background="@drawable/circle"
                                 android:backgroundTint="#FFFFFF"
+                                android:gravity="center"
+                                android:paddingBottom="0dp"
                                 android:paddingLeft="0dp"
                                 android:paddingRight="0dp"
                                 android:paddingTop="1dp"
-                                android:paddingBottom="0dp"
-                                android:gravity="center"
                                 android:text="12:00"
                                 android:textColor="@color/black"
-                                android:textSize="12sp"
+                                android:textSize="16sp"
                                 android:textStyle="bold" />
                         </RelativeLayout>
 
