@@ -143,7 +143,7 @@ public class MainActivity extends AppCompatActivity {
             startTime.setByDate(oneTimeData.getStartTime());
             endTime.setByDate(oneTimeData.getEndTime());
 
-            tasks.add(new Task(oneTimeData.getName(), oneTimeData.getNotes(), oneTimeData.getLoc(), startTime, endTime));
+            tasks.add(new Task(oneTimeData.getName(), oneTimeData.getNotes(), oneTimeData.getLoc(), startTime, endTime, startTime, false, false));
         }
 
         /**
@@ -185,12 +185,14 @@ public class MainActivity extends AppCompatActivity {
                         DateTime currentStartTime = new DateTime();
                         currentStartTime.setByDate(now.getTime());
                         currentStartTime.setHour(startTime.getHour());
+                        currentStartTime.setMinute(startTime.getMinute());
 
                         DateTime currentEndTime = new DateTime();
                         currentEndTime.setByDate(now.getTime());
                         currentEndTime.setHour(endTime.getHour());
+                        currentEndTime.setMinute(endTime.getMinute());
 
-                        tasks.add(new Task(name, notes, loc, currentStartTime, currentEndTime));
+                        tasks.add(new Task(name, notes, loc, currentStartTime, currentEndTime, currentStartTime, false, false));
 
                         now.add(Calendar.DATE, 1);
                     }
@@ -215,12 +217,14 @@ public class MainActivity extends AppCompatActivity {
                         DateTime currentStartTime = new DateTime();
                         currentStartTime.setByDate(now.getTime());
                         currentStartTime.setHour(startTime.getHour());
+                        currentStartTime.setMinute(startTime.getMinute());
 
                         DateTime currentEndTime = new DateTime();
                         currentEndTime.setByDate(now.getTime());
                         currentEndTime.setHour(endTime.getHour());
+                        currentEndTime.setMinute(endTime.getMinute());
 
-                        tasks.add(new Task(name, notes, loc, currentStartTime, currentEndTime));
+                        tasks.add(new Task(name, notes, loc, currentStartTime, currentEndTime, currentStartTime, false, false));
 
                         now.add(Calendar.DATE, 7);
                     }
@@ -242,12 +246,14 @@ public class MainActivity extends AppCompatActivity {
                         DateTime currentStartTime = new DateTime();
                         currentStartTime.setByDate(now.getTime());
                         currentStartTime.setHour(startTime.getHour());
+                        currentStartTime.setMinute(startTime.getMinute());
 
                         DateTime currentEndTime = new DateTime();
                         currentEndTime.setByDate(now.getTime());
                         currentEndTime.setHour(endTime.getHour());
+                        currentEndTime.setMinute(endTime.getMinute());
 
-                        tasks.add(new Task(name, notes, loc, currentStartTime, currentEndTime));
+                        tasks.add(new Task(name, notes, loc, currentStartTime, currentEndTime, currentStartTime, false, false));
 
                         now.add(Calendar.MONTH, 1);
                     }
@@ -262,8 +268,6 @@ public class MainActivity extends AppCompatActivity {
                         // jump to selected date
                         now.set(Calendar.DATE, startTime.getDay());
 
-                        Toast.makeText(getApplicationContext(),"sesudah",Toast.LENGTH_SHORT).show();
-
                     } else if (((now.get(Calendar.MONTH) + 1) == startTime.getMonth()) && (now.get(Calendar.DATE) > startTime.getDay())) {
 
                         // jump to selected first day of selected month in the next year
@@ -272,8 +276,6 @@ public class MainActivity extends AppCompatActivity {
                         now.set(Calendar.DATE, startTime.getDay());
 
                     } else {
-
-                        Toast.makeText(getApplicationContext(),"lala",Toast.LENGTH_SHORT).show();
 
                         // trav until next selected month
                         while ((now.get(Calendar.MONTH) + 1) != startTime.getMonth()) {
@@ -298,12 +300,14 @@ public class MainActivity extends AppCompatActivity {
                         DateTime currentStartTime = new DateTime();
                         currentStartTime.setByDate(now.getTime());
                         currentStartTime.setHour(startTime.getHour());
+                        currentStartTime.setMinute(startTime.getMinute());
 
                         DateTime currentEndTime = new DateTime();
                         currentEndTime.setByDate(now.getTime());
                         currentEndTime.setHour(endTime.getHour());
+                        currentEndTime.setMinute(endTime.getMinute());
 
-                        tasks.add(new Task(name, notes, loc, currentStartTime, currentEndTime));
+                        tasks.add(new Task(name, notes, loc, currentStartTime, currentEndTime, currentStartTime, false, false));
 
                         now.add(Calendar.YEAR, 1);
                     }
@@ -330,18 +334,30 @@ public class MainActivity extends AppCompatActivity {
         /**
          *  Add tasks timetable to a database
          */
-        /*/ Delete all data in database
-        List<TimeTableDatabase> oneTimeDatas = new Select().from(OneTimeDatabase.class).queryList();
-        for (OneTimeDatabase oneTimeData : oneTimeDatas) {
-            oneTimeData.delete();
+
+        // Delete all data in database
+        List<TimeTableDatabase> timeTableDatas = new Select().from(TimeTableDatabase.class).queryList();
+        for (TimeTableDatabase timeTableData : timeTableDatas) {
+            timeTableData.delete();
         }
 
         // Fill database with new data
-        List<ScheduledDatabase> scheduledDatas = new Select().from(ScheduledDatabase.class).queryList();
-        for (ScheduledDatabase scheduledData : scheduledDatas) {
-            scheduledData.delete();
+        iter = tasks.iterator();
+        while (iter.hasNext()) {
+            Task nextTask = iter.next();
+
+            TimeTableDatabase timeTableData = new TimeTableDatabase();
+            timeTableData.setName(nextTask.getName());
+            timeTableData.setStartTime(nextTask.getStartTime().getByDate());
+            timeTableData.setEndTime(nextTask.getEndTime().getByDate());
+            timeTableData.setDueTime(nextTask.getDueTime().getByDate());
+            timeTableData.setNotes(nextTask.getNotes());
+            timeTableData.setLoc(nextTask.getLoc());
+            timeTableData.setDone(nextTask.getDone());
+            timeTableData.setIsProject(nextTask.getIsProject());
+            timeTableData.save();
+
         }
-        /*/
 
         /**
          *  Refresh task adapter data

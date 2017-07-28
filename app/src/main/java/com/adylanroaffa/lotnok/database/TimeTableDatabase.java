@@ -37,13 +37,17 @@ public class TimeTableDatabase extends BaseModel {
     @Column
     String loc;
 
-    // event completion
-    @Column
-    boolean done = false;
-
     // event due date (for projects)
     @Column
     Date dueTime;
+
+    // is a project
+    @Column
+    boolean isProject = false;
+
+    // event completion
+    @Column
+    boolean done = false;
 
     // get methods
 
@@ -60,6 +64,8 @@ public class TimeTableDatabase extends BaseModel {
     public String getLoc() { return this.loc; }
 
     public boolean getDone() { return this.done; }
+
+    public boolean getIsProject() { return this.isProject; }
 
     public Date getDueTime() { return this.dueTime; }
 
@@ -78,6 +84,8 @@ public class TimeTableDatabase extends BaseModel {
     public void setLoc(String loc) { this.loc = loc; }
 
     public void setDone(boolean done) { this.done = done; }
+
+    public void setIsProject(boolean isProject) { this.isProject = isProject; }
 
     public void setDueTime(Date dueTime) { this.dueTime = dueTime; }
 

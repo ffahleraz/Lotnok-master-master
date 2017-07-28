@@ -11,6 +11,9 @@ public class Task implements Comparable<Task> {
     String loc;
     DateTime startTime;
     DateTime endTime;
+    DateTime dueTime;
+    boolean done;
+    boolean isProject;
 
     /*public constructor
     *   @param
@@ -18,12 +21,15 @@ public class Task implements Comparable<Task> {
     *   String taskDeadline
     *   String timeLeft
     */
-    public Task (String taskName, String taskNotes, String taskLoc, DateTime taskStartTime, DateTime taskEndTime){
+    public Task (String taskName, String taskNotes, String taskLoc, DateTime taskStartTime, DateTime taskEndTime, DateTime dueTime, boolean done, boolean isProject) {
         this.name = taskName;
         this.notes = taskNotes;
         this.loc = taskLoc;
         this.startTime = taskStartTime;
         this.endTime = taskEndTime;
+        this.dueTime = dueTime;
+        this.done = done;
+        this.isProject = isProject;
     }
 
     public String getName(){
@@ -43,6 +49,14 @@ public class Task implements Comparable<Task> {
     public DateTime getEndTime(){
         return endTime;
     }
+
+    public DateTime getDueTime(){
+        return dueTime;
+    }
+
+    public boolean getDone() { return done; }
+
+    public boolean getIsProject() { return isProject; }
 
     @Override
     public int compareTo(Task o) {
