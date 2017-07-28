@@ -61,11 +61,11 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskViewHolder
 
     @Override
     public void onBindViewHolder(TaskViewHolder holder, int i) {
-        holder.taskName.setText("" + tasks.get(i).taskName);
-        holder.taskNotes.setText("" + tasks.get(i).taskNotes);
-        holder.taskLoc.setText("" + tasks.get(i).taskLoc);
-        holder.taskStartTime.setText("" + String.format("%02d", tasks.get(i).taskStartTime.getHour()) + ":" + String.format("%02d", tasks.get(i).taskStartTime.getMinute()));
-        holder.taskEndTime.setText("" + tasks.get(i).taskEndTime.print());
+        holder.taskName.setText("" + tasks.get(i).name);
+        holder.taskNotes.setText("" + tasks.get(i).notes);
+        holder.taskLoc.setText("" + tasks.get(i).loc);
+        holder.taskStartTime.setText("" + String.format("%02d", tasks.get(i).startTime.getHour()) + ":" + String.format("%02d", tasks.get(i).startTime.getMinute()));
+        holder.taskEndTime.setText("" + tasks.get(i).endTime.print());
     }
 
     @Override

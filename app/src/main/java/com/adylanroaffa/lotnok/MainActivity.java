@@ -300,7 +300,7 @@ public class MainActivity extends AppCompatActivity {
         Iterator<Task> iter = tasks.iterator();
         while (iter.hasNext()) {
             Task nextTask = iter.next();
-            if (nextTask.getTaskStartTime().getByDate().compareTo(now) < 0) {
+            if (nextTask.getStartTime().getByDate().compareTo(now) < 0) {
                 iter.remove();
             }
         }

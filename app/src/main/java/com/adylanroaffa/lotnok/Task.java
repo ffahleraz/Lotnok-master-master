@@ -6,11 +6,11 @@ package com.adylanroaffa.lotnok;
 
 public class Task implements Comparable<Task> {
 
-    String taskName;
-    String taskNotes;
-    String taskLoc;
-    DateTime taskStartTime;
-    DateTime taskEndTime;
+    String name;
+    String notes;
+    String loc;
+    DateTime startTime;
+    DateTime endTime;
 
     /*public constructor
     *   @param
@@ -19,36 +19,34 @@ public class Task implements Comparable<Task> {
     *   String timeLeft
     */
     public Task (String taskName, String taskNotes, String taskLoc, DateTime taskStartTime, DateTime taskEndTime){
-        this.taskName = taskName;
-        this.taskNotes = taskNotes;
-        this.taskLoc = taskLoc;
-        this.taskStartTime = taskStartTime;
-        this.taskEndTime = taskEndTime;
+        this.name = taskName;
+        this.notes = taskNotes;
+        this.loc = taskLoc;
+        this.startTime = taskStartTime;
+        this.endTime = taskEndTime;
     }
 
-    public String getTaskName(){
-        return taskName;
+    public String getName(){
+        return name;
     }
 
-    public String getTaskNotes(){
-        return taskNotes;
+    public String getNotes(){
+        return notes;
     }
 
-    public String getTaskLoc(){
-        return taskLoc;
+    public String getLoc(){
+        return loc;
     }
 
-    public DateTime getTaskStartTime(){
-        return taskStartTime;
-    }
+    public DateTime getStartTime(){ return startTime; }
 
-    public DateTime getTaskEndTime(){
-        return taskEndTime;
+    public DateTime getEndTime(){
+        return endTime;
     }
 
     @Override
     public int compareTo(Task o) {
-        return getTaskStartTime().getByDate().compareTo(o.getTaskStartTime().getByDate());
+        return getStartTime().getByDate().compareTo(o.getStartTime().getByDate());
     }
 
 }

@@ -4,6 +4,7 @@ package com.adylanroaffa.lotnok.database;
  * Created by ffahleraz on 7/23/17.
  */
 
+import com.adylanroaffa.lotnok.DateTime;
 import com.raizlabs.android.dbflow.annotation.*;
 import com.raizlabs.android.dbflow.structure.*;
 import java.util.Date;

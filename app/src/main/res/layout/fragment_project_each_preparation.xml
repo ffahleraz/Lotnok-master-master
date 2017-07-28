@@ -87,7 +87,7 @@
                     android:layout_height="100dp"
                     android:layout_gravity="center_horizontal">
                     <com.shawnlin.numberpicker.NumberPicker
-                        android:id="@+id/monutes_picker"
+                        android:id="@+id/minutes_picker"
                         android:layout_width="50dp"
                         android:layout_height="100dp"
                         app:np_dividerColor="@color/gray_text"
@@ -116,7 +116,7 @@
         </View>
 
         <Button
-            android:id="@+id/one_time_task_button"
+            android:id="@+id/confirm_button"
             android:layout_marginLeft="32dp"
             android:layout_marginRight="32dp"
             android:layout_marginBottom="16dp"

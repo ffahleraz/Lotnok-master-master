@@ -93,8 +93,8 @@ public class AddDetailsScheduledFragment extends Fragment {
                 newScheduledData.setName(newCreationName);
                 newScheduledData.setStartTime(newCreationStartTime.getByDate());
                 newScheduledData.setEndTime(newCreationEndTime.getByDate());
-                newScheduledData.setNotes(locET.getText().toString());
-                newScheduledData.setLoc(notesET.getText().toString());
+                newScheduledData.setNotes(notesET.getText().toString());
+                newScheduledData.setLoc(locET.getText().toString());
                 newScheduledData.setFrequency(newCreationFrequency);
                 newScheduledData.setDay(newCreationDay);
                 newScheduledData.setDone(false);

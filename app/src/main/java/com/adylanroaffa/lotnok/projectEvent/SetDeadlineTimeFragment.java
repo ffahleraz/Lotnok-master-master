@@ -65,7 +65,7 @@ public class SetDeadlineTimeFragment extends Fragment {
         /*
         * PLAN IT BUTTON
         * */
-        Button addDetailButton = (Button) view.findViewById(R.id.add_details_button);
+        Button addDetailButton = (Button) view.findViewById(R.id.confirm_button);
         addDetailButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

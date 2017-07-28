@@ -23,7 +23,7 @@ import com.adylanroaffa.lotnok.R;
  */
 public class SetPreparationFragment extends Fragment {
 
-    NumberPicker splitPicker;
+    com.shawnlin.numberpicker.NumberPicker splitPicker;
 
     // new creation variables
     public String newCreationName;
@@ -57,13 +57,12 @@ public class SetPreparationFragment extends Fragment {
         /*
         * SPLIT NUMBER PICKER
         * */
-        splitPicker = (NumberPicker) view.findViewById(R.id.split_picker);
-
+        splitPicker = (com.shawnlin.numberpicker.NumberPicker) view.findViewById(R.id.split_picker);
 
         /*
         * PLAN IT BUTTON
         * */
-        Button addDetailButton = (Button) view.findViewById(R.id.add_details_button);
+        Button addDetailButton = (Button) view.findViewById(R.id.confirm_button);
         addDetailButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

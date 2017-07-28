@@ -86,8 +86,8 @@ public class AddDetailsFragment extends Fragment {
                 newOneTimeData.setName(newCreationName);
                 newOneTimeData.setStartTime(newCreationStartTime.getByDate());
                 newOneTimeData.setEndTime(newCreationEndTime.getByDate());
-                newOneTimeData.setNotes(locET.getText().toString());
-                newOneTimeData.setLoc(notesET.getText().toString());
+                newOneTimeData.setNotes(notesET.getText().toString());
+                newOneTimeData.setLoc(locET.getText().toString());
                 newOneTimeData.setDone(false);
                 newOneTimeData.save();
 
