@@ -70,18 +70,18 @@ public class SetDeadlineTimeFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                SetPreparationFragment setPreparationFragment = new SetPreparationFragment();
+                AddDetailsProjectFragment addDetailsProjectFragment = new AddDetailsProjectFragment();
 
                 // resolve new time data
                 newCreationDeadline.setHour(deadlineTimePicker.getHour());
                 newCreationDeadline.setMinute(deadlineTimePicker.getMinute());
 
                 // pass data for new one time event
-                setPreparationFragment.newCreationName = newCreationName;
-                setPreparationFragment.newCreationDeadline = newCreationDeadline;
+                addDetailsProjectFragment.newCreationName = newCreationName;
+                addDetailsProjectFragment.newCreationDeadline = newCreationDeadline;
 
                 FragmentManager fragmentManager = getFragmentManager();
-                fragmentManager.beginTransaction().replace(R.id.container, setPreparationFragment).addToBackStack(null).commit();
+                fragmentManager.beginTransaction().replace(R.id.container, addDetailsProjectFragment).addToBackStack(null).commit();
         }
         });
 

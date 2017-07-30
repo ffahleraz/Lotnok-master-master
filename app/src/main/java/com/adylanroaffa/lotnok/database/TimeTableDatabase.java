@@ -14,7 +14,7 @@ public class TimeTableDatabase extends BaseModel {
 
     // data key
     @Column
-    @PrimaryKey
+    @PrimaryKey (autoincrement = true)
     int id;
 
     // event name
@@ -40,6 +40,14 @@ public class TimeTableDatabase extends BaseModel {
     // event due date (for projects)
     @Column
     Date dueTime;
+
+    // project split
+    @Column
+    int split = 0;
+
+    // project split ID (0 - (split - 1))
+    @Column
+    int splitID = 0;
 
     // is a project
     @Column
@@ -69,6 +77,10 @@ public class TimeTableDatabase extends BaseModel {
 
     public Date getDueTime() { return this.dueTime; }
 
+    public int getSplit() { return this.split; }
+
+    public int getSplitID() { return this.splitID; }
+
     // set methods
 
     public void setId(int id) { this.id = id; }
@@ -88,5 +100,9 @@ public class TimeTableDatabase extends BaseModel {
     public void setIsProject(boolean isProject) { this.isProject = isProject; }
 
     public void setDueTime(Date dueTime) { this.dueTime = dueTime; }
+
+    public void setSplit(int split) { this.split = split; }
+
+    public void setSplitID(int splitID) { this.splitID = splitID; }
 
 }

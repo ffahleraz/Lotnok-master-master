@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -79,11 +80,26 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskViewHolder
 
     @Override
     public void onBindViewHolder(TaskViewHolder holder, int i) {
-        holder.taskName.setText("" + tasks.get(i).name);
+
         holder.taskNotes.setText("" + tasks.get(i).notes);
         holder.taskLoc.setText("" + tasks.get(i).loc);
         holder.taskStartTime.setText("" + String.format("%02d", tasks.get(i).startTime.getHour()) + ":" + String.format("%02d", tasks.get(i).startTime.getMinute()));
-        holder.taskEndTime.setText("" + tasks.get(i).endTime.print());
+
+        if (tasks.get(i).getIsProject()) {
+
+            holder.taskName.setText("" + tasks.get(i).name + " (" + (tasks.get(i).splitID + 1) + "/" + tasks.get(i).split + ")");
+
+            Date nowD = new Date();
+            Date thenD = tasks.get(i).getDueTime().getByDate();
+            int remainingDay = (int)( (thenD.getTime() - nowD.getTime()) / (1000 * 60 * 60 * 24));
+            //holder.taskEndTime.setText("Due in " + remainingDay + "days");
+            holder.taskEndTime.setText("P " + tasks.get(i).endTime.print());
+
+        } else {
+            holder.taskName.setText("" + tasks.get(i).name);
+            holder.taskEndTime.setText("" + tasks.get(i).endTime.print());
+        }
+
     }
 
     @Override

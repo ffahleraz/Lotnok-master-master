@@ -2,7 +2,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="com.adylanroaffa.lotnok.SelectTaskFragment"
     android:orientation="vertical">
 
@@ -30,48 +29,54 @@
             android:layout_gravity="center_horizontal"
             android:textAlignment="center"
             android:textColor="#bdbdbd"
-            android:text="Set deadline"
+            android:text="Add details"
             android:textSize="26sp" />
-        <TextView
-            android:layout_margin="8dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:textAlignment="center"
-            android:textColor="#bdbdbd"
-            android:text="Add time"
-            android:textSize="16sp" />
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="48dp">
+        </View>
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_margin="16dp"
-            android:weightSum="1">
-            <TextView
-                android:layout_margin="8dp"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:textAlignment="center"
-                android:textColor="#bdbdbd"
-                android:text="At"
-                android:textSize="20sp" />
+            android:layout_marginLeft="32dp"
+            android:layout_marginRight="32dp"
+            android:layout_marginBottom="32dp"
+            android:orientation="horizontal"
+            >
 
-            <TimePicker
-                android:id="@+id/deadline_time"
-                android:layout_width="179dp"
-                android:layout_height="99dp"
-                android:layout_gravity="center_horizontal"
-                android:timePickerMode="spinner"
-                android:descendantFocusability="blocksDescendants"
+            <ImageView
+                android:id="@+id/pin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/location_image"
+                />
+            <EditText
+                android:id="@+id/location_editText"
+                android:inputType="textNoSuggestions"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:hint="Location"
+                android:textColorHint="@color/black"
                 />
         </LinearLayout>
 
+        <EditText
+            android:id="@+id/notes_editText"
+            android:inputType="text"
+            android:imeOptions="actionDone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="32dp"
+            android:layout_marginRight="32dp"
+            android:layout_marginBottom="32dp"
+            android:hint="Notes"
+            android:textColorHint="@color/black"/>
 
         <Button
-            android:id="@+id/confirm_button"
+            android:id="@+id/done_button"
             android:layout_marginLeft="32dp"
             android:layout_marginRight="32dp"
             android:layout_marginBottom="16dp"
@@ -84,10 +89,10 @@
             android:backgroundTint="@color/colorAccent"
             android:textSize="24sp"
             android:textAllCaps="false"
-            android:text="Add details"
+            android:text="Plan it!"
             android:textColor="#FFFFFF"
-            android:layout_marginTop="10dp"
             />
+
 
     </LinearLayout>
 </LinearLayout>

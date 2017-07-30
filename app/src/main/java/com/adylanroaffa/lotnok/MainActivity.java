@@ -14,6 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.adylanroaffa.lotnok.database.OneTimeDatabase;
+import com.adylanroaffa.lotnok.database.ProjectDatabase;
 import com.adylanroaffa.lotnok.database.ScheduledDatabase;
 import com.adylanroaffa.lotnok.database.TimeTableDatabase;
 import com.raizlabs.android.dbflow.config.*;
@@ -31,9 +32,6 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView rv;
     private TaskAdapter taskAdapter;
     private Calendar calendar;
-
-    private int taskNum = 0;
-    private int deadlineNum = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -143,7 +141,61 @@ public class MainActivity extends AppCompatActivity {
             startTime.setByDate(oneTimeData.getStartTime());
             endTime.setByDate(oneTimeData.getEndTime());
 
-            tasks.add(new Task(oneTimeData.getName(), oneTimeData.getNotes(), oneTimeData.getLoc(), startTime, endTime, startTime, false, false));
+            tasks.add(new Task(oneTimeData.getName(), oneTimeData.getNotes(), oneTimeData.getLoc(), startTime, endTime, startTime, false, false, 0, 0));
+        }
+
+        /**
+         *  Load projects
+         */
+        List<ProjectDatabase> projectDatas = new Select().from(ProjectDatabase.class).queryList();
+        for (ProjectDatabase projectData : projectDatas) {
+
+            // get each preparations
+            for (int i = 0; i < projectData.getSplit(); i++) {
+
+                DateTime startTime = new DateTime();
+                DateTime endTime = new DateTime();
+                DateTime dueTime = new DateTime();
+                dueTime.setByDate(projectData.getDeadline());
+
+                switch (i) {
+
+                    case 0:
+                        startTime.setByDate(projectData.getPrep0Start());
+                        break;
+                    case 1:
+                        startTime.setByDate(projectData.getPrep1Start());
+                        break;
+                    case 2:
+                        startTime.setByDate(projectData.getPrep2Start());
+                        break;
+                    case 3:
+                        startTime.setByDate(projectData.getPrep3Start());
+                        break;
+                    case 4:
+                        startTime.setByDate(projectData.getPrep4Start());
+                        break;
+                    case 5:
+                        startTime.setByDate(projectData.getPrep5Start());
+                        break;
+                    case 6:
+                        startTime.setByDate(projectData.getPrep6Start());
+                        break;
+                    case 7:
+                        startTime.setByDate(projectData.getPrep7Start());
+                        break;
+
+                }
+
+                Calendar endCal = Calendar.getInstance();
+                endCal.setTime(startTime.getByDate());
+                endCal.add(Calendar.MINUTE, projectData.getPrepDur());
+                endTime.setByDate(endCal.getTime());
+
+                tasks.add(new Task(projectData.getName(), projectData.getNotes(), projectData.getLoc(), startTime, endTime, dueTime, false, true, projectData.getSplit(), i));
+
+            }
+
         }
 
         /**
@@ -192,7 +244,7 @@ public class MainActivity extends AppCompatActivity {
                         currentEndTime.setHour(endTime.getHour());
                         currentEndTime.setMinute(endTime.getMinute());
 
-                        tasks.add(new Task(name, notes, loc, currentStartTime, currentEndTime, currentStartTime, false, false));
+                        tasks.add(new Task(name, notes, loc, currentStartTime, currentEndTime, currentStartTime, false, false, 0, 0));
 
                         now.add(Calendar.DATE, 1);
                     }
@@ -224,7 +276,7 @@ public class MainActivity extends AppCompatActivity {
                         currentEndTime.setHour(endTime.getHour());
                         currentEndTime.setMinute(endTime.getMinute());
 
-                        tasks.add(new Task(name, notes, loc, currentStartTime, currentEndTime, currentStartTime, false, false));
+                        tasks.add(new Task(name, notes, loc, currentStartTime, currentEndTime, currentStartTime, false, false, 0, 0));
 
                         now.add(Calendar.DATE, 7);
                     }
@@ -253,7 +305,7 @@ public class MainActivity extends AppCompatActivity {
                         currentEndTime.setHour(endTime.getHour());
                         currentEndTime.setMinute(endTime.getMinute());
 
-                        tasks.add(new Task(name, notes, loc, currentStartTime, currentEndTime, currentStartTime, false, false));
+                        tasks.add(new Task(name, notes, loc, currentStartTime, currentEndTime, currentStartTime, false, false, 0, 0));
 
                         now.add(Calendar.MONTH, 1);
                     }
@@ -307,7 +359,7 @@ public class MainActivity extends AppCompatActivity {
                         currentEndTime.setHour(endTime.getHour());
                         currentEndTime.setMinute(endTime.getMinute());
 
-                        tasks.add(new Task(name, notes, loc, currentStartTime, currentEndTime, currentStartTime, false, false));
+                        tasks.add(new Task(name, notes, loc, currentStartTime, currentEndTime, currentStartTime, false, false, 0, 0));
 
                         now.add(Calendar.YEAR, 1);
                     }

@@ -57,7 +57,7 @@
             android:layout_toRightOf="@id/repeat"
             app:np_dividerColor="@color/gray_text"
             app:np_min="1"
-            app:np_max="10"
+            app:np_max="8"
             app:np_value="3"
             app:np_dividerDistance="40dp"
             app:np_textSize="20dp"

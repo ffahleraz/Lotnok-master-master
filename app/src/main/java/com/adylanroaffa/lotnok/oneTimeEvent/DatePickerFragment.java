@@ -1,5 +1,6 @@
 package com.adylanroaffa.lotnok.oneTimeEvent;
 
+import android.icu.util.Calendar;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
@@ -55,8 +56,28 @@ public class DatePickerFragment extends Fragment {
         mcv.setOnDateChangedListener(new OnDateSelectedListener() {
             @Override
             public void onDateSelected(@NonNull MaterialCalendarView widget, @NonNull CalendarDay date, boolean selected) {
-                canConfirm = true;
+
+                Calendar nowCal = Calendar.getInstance();
+                nowCal.set(Calendar.HOUR_OF_DAY, 0);
+                nowCal.set(Calendar.MINUTE, 0);
+                nowCal.set(Calendar.SECOND, 0);
+                nowCal.set(Calendar.MILLISECOND, 0);
+                Date now = nowCal.getTime();
+
+                Calendar selectedCal = Calendar.getInstance();
+                selectedCal.setTime(date.getDate());
+                selectedCal.set(Calendar.HOUR_OF_DAY, 0);
+                selectedCal.set(Calendar.MINUTE, 0);
+                selectedCal.set(Calendar.SECOND, 0);
+                selectedCal.set(Calendar.MILLISECOND, 0);
+                Date selectedDate = selectedCal.getTime();
+
+                if (now.compareTo(selectedDate) <= 0) {
+                    canConfirm = true;
+                }
+
                 newCreationStartTime.setByDate(date.getDate());
+
             }
         });
 
@@ -91,7 +112,7 @@ public class DatePickerFragment extends Fragment {
                     fragmentManager.beginTransaction().replace(R.id.container, addTimeFragment).addToBackStack(null).commit();
 
                 } else {
-                    Toast.makeText(getContext(),"Please select a date.",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(),"Please select a date (must be today or later).",Toast.LENGTH_SHORT).show();
                 }
 
             }

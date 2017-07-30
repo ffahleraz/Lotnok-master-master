@@ -49,7 +49,7 @@
                         android:layout_marginLeft="10dp"
                         android:background="@drawable/circle"
                         android:gravity="center_vertical"
-                        android:text="Title"
+                        android:text="--"
                         android:textAlignment="center"
                         android:textColor="#b4b4b4"
                         android:textSize="24dp" />

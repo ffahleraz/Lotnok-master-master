@@ -1,7 +1,5 @@
 package com.adylanroaffa.lotnok.projectEvent;
 
-import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -10,40 +8,50 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.NumberPicker;
 
 import com.adylanroaffa.lotnok.DateTime;
-import com.adylanroaffa.lotnok.PopupActivity;
 import com.adylanroaffa.lotnok.R;
+import com.adylanroaffa.lotnok.database.OneTimeDatabase;
 
+import java.util.Date;
 
 /**
- * A simple {@link Fragment} subclass.
+ * Created by ffahleraz on 7/29/17.
  */
-public class SetPreparationFragment extends Fragment {
 
-    com.shawnlin.numberpicker.NumberPicker splitPicker;
+public class AddDetailsProjectFragment extends Fragment {
 
     // new creation variables
     public String newCreationName;
-    public String newCreationNotes;
-    public String newCreationLoc;
     public DateTime newCreationDeadline;
 
-    public SetPreparationFragment() {
+    public AddDetailsProjectFragment() {
         // Required empty public constructor
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(final LayoutInflater inflater, final ViewGroup container,
                              Bundle savedInstanceState) {
 
         // Inflate the layout for this fragment
-        View view =  inflater.inflate(R.layout.fragment_project_set_preparation, container, false);
+        View view = inflater.inflate(R.layout.fragment_project_add_details, container, false);
 
         // Resize popup
         resizePopup();
+
+        /*
+        * LOCATION EDIT TEXT
+        * */
+        final EditText locET = (EditText) view.findViewById(R.id.location_editText);
+
+        /*
+        * NOTES EDIT TEXT
+        * */
+        final EditText notesET = (EditText) view.findViewById(R.id.notes_editText);
+        notesET.setHorizontallyScrolling(false);
+        notesET.setMaxLines(2);
 
         /*
         * BACK BUTTON
@@ -57,33 +65,28 @@ public class SetPreparationFragment extends Fragment {
         });
 
         /*
-        * SPLIT NUMBER PICKER
+        * DONE BUTTON
         * */
-        splitPicker = (com.shawnlin.numberpicker.NumberPicker) view.findViewById(R.id.split_picker);
+        Button doneButton = (Button) view.findViewById(R.id.done_button);
+        doneButton.setOnClickListener(new View.OnClickListener() {
 
-        /*
-        * PLAN IT BUTTON
-        * */
-        Button addDetailButton = (Button) view.findViewById(R.id.confirm_button);
-        addDetailButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                EachPreparationFragment eachPreparationFragment = new EachPreparationFragment();
+                SetPreparationFragment setPreparationFragment = new SetPreparationFragment();
 
                 // pass data for new one time event
-                eachPreparationFragment.newCreationName = newCreationName;
-                eachPreparationFragment.newCreationNotes = newCreationNotes;
-                eachPreparationFragment.newCreationLoc = newCreationLoc;
-                eachPreparationFragment.newCreationDeadline = newCreationDeadline;
-                eachPreparationFragment.newCreationSplit = splitPicker.getValue();
+                setPreparationFragment.newCreationName = newCreationName;
+                setPreparationFragment.newCreationDeadline = newCreationDeadline;
+                setPreparationFragment.newCreationNotes = notesET.getText().toString();
+                setPreparationFragment.newCreationLoc = locET.getText().toString();
 
                 FragmentManager fragmentManager = getFragmentManager();
-                fragmentManager.beginTransaction().replace(R.id.container, eachPreparationFragment).addToBackStack(null).commit();
+                fragmentManager.beginTransaction().replace(R.id.container, setPreparationFragment).addToBackStack(null).commit();
+
             }
         });
 
-        // Inflate the layout for this fragment
         return view;
     }
 
@@ -96,7 +99,7 @@ public class SetPreparationFragment extends Fragment {
         int height = dm.heightPixels;
         int width = dm.widthPixels;
 
-        getActivity().getWindow().setLayout((int)(width*0.9),(int)(height*0.85));
+        getActivity().getWindow().setLayout((int)(width*0.9),(int)(height*0.6));
     }
 
 }
