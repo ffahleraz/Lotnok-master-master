@@ -16,6 +16,8 @@
         </activity>
         <activity android:name=".PopupActivity" android:theme="@style/AppTheme.PopUp">
         </activity>
+
+        <receiver android:name=".NotificationReciever"/>
     </application>
 
 </manifest>

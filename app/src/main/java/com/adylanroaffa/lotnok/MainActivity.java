@@ -25,6 +25,8 @@ import java.util.Collections;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -409,6 +411,8 @@ public class MainActivity extends AppCompatActivity {
             timeTableData.setIsProject(nextTask.getIsProject());
             timeTableData.save();
 
+            setAlarm(nextTask.getStartTime());
+
         }
 
         if (tasks.size() > 0) {
@@ -452,4 +456,23 @@ public class MainActivity extends AppCompatActivity {
         rv.setAdapter(taskAdapter);
 
     }
+
+    private void setAlarm(DateTime startTime) {
+
+        Calendar alarmCalendar = Calendar.getInstance();
+        alarmCalendar.set(Calendar.MONTH,startTime.getMonth());
+        alarmCalendar.set(Calendar.DAY_OF_MONTH,startTime.getDay());
+        alarmCalendar.set(Calendar.HOUR_OF_DAY,startTime.getHour());
+        alarmCalendar.set(Calendar.MINUTE,startTime.getMinute());
+
+        Intent intent = new Intent(getApplicationContext(), NotificationReciever.class);
+
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(getApplicationContext(),100,intent,PendingIntent.FLAG_UPDATE_CURRENT);
+
+        AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
+
+        alarmManager.setExact(AlarmManager.RTC_WAKEUP,calendar.getTimeInMillis(),pendingIntent);
+
+    }
+
 }
