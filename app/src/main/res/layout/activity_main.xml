@@ -99,7 +99,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:layout_marginBottom="5dp"
-                                android:text="Task Name"
+                                android:text="No upcoming tasks"
                                 android:textSize="30sp" />
 
                             <TextView
@@ -108,7 +108,7 @@
                                 android:layout_height="match_parent"
                                 android:layout_marginBottom="9dp"
                                 android:layout_marginTop="4dp"
-                                android:text="subtitle(?)"
+                                android:text=""
                                 android:textSize="20sp" />
 
                         </LinearLayout>
@@ -132,7 +132,7 @@
                                 android:paddingLeft="54dp"
                                 android:paddingRight="15dp"
                                 android:paddingTop="5dp"
-                                android:text="Until AA/AA/AAAA AA:AA"
+                                android:text=""
                                 android:textColor="#FFFFFF"
                                 android:textSize="15sp"
                                 android:textStyle="bold" />
@@ -150,7 +150,7 @@
                                 android:paddingLeft="0dp"
                                 android:paddingRight="0dp"
                                 android:paddingTop="1dp"
-                                android:text="12:00"
+                                android:text="--:--"
                                 android:textColor="@color/black"
                                 android:textSize="16sp"
                                 android:textStyle="bold" />
@@ -168,7 +168,7 @@
                                 android:layout_alignParentRight="true"
                                 android:paddingBottom="12dp"
                                 android:paddingRight="20dp"
-                                android:text="LOCATION"
+                                android:text="--"
                                 android:textSize="18sp"
                                 android:textStyle="bold" />
 

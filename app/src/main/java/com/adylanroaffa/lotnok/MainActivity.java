@@ -411,28 +411,32 @@ public class MainActivity extends AppCompatActivity {
 
         }
 
-        Task topTask = tasks.get(0);
-        tasks.remove(0);
+        if (tasks.size() > 0) {
 
-        TextView upComingTaskName =(TextView) findViewById(R.id.upcoming_task_name);
-        upComingTaskName.setTypeface(Typeface.createFromAsset(getAssets(),"fonts/avenir-light.ttf"));
-        upComingTaskName.setText(topTask.getName());
+            Task topTask = tasks.get(0);
+            tasks.remove(0);
 
-        TextView upComingTaskDeadline =(TextView) findViewById(R.id.upcoming_task_deadline);
-        upComingTaskDeadline.setTypeface(Typeface.createFromAsset(getAssets(),"fonts/avenir-light.ttf"));
-        upComingTaskDeadline.setText(topTask.getNotes());
+            TextView upComingTaskName =(TextView) findViewById(R.id.upcoming_task_name);
+            upComingTaskName.setTypeface(Typeface.createFromAsset(getAssets(),"fonts/avenir-light.ttf"));
+            upComingTaskName.setText(topTask.getName());
 
-        TextView upNext =(TextView) findViewById(R.id.up_next);
-        upNext.setTypeface(Typeface.createFromAsset(getAssets(),"fonts/DIN Regular.ttf"));
-        upNext.setText("Until " + topTask.getEndTime().print());
+            TextView upComingTaskDeadline =(TextView) findViewById(R.id.upcoming_task_deadline);
+            upComingTaskDeadline.setTypeface(Typeface.createFromAsset(getAssets(),"fonts/avenir-light.ttf"));
+            upComingTaskDeadline.setText(topTask.getNotes());
 
-        TextView location =(TextView) findViewById(R.id.Tag_Location);
-        location.setTypeface(Typeface.createFromAsset(getAssets(),"fonts/DIN Regular.ttf"));
-        location.setText(topTask.getLoc());
+            TextView upNext =(TextView) findViewById(R.id.up_next);
+            upNext.setTypeface(Typeface.createFromAsset(getAssets(),"fonts/DIN Regular.ttf"));
+            upNext.setText("Until " + topTask.getEndTime().print());
 
-        TextView upComingTaskDeadlineTime =(TextView) findViewById(R.id.upcoming_task_deadline_time);
-        upComingTaskDeadlineTime.setTypeface(Typeface.createFromAsset(getAssets(),"fonts/DIN Regular.ttf"));
-        upComingTaskDeadlineTime.setText(String.format("%02d", topTask.getStartTime().getHour()) + ":" + String.format("%02d", topTask.getStartTime().getMinute()));
+            TextView location =(TextView) findViewById(R.id.Tag_Location);
+            location.setTypeface(Typeface.createFromAsset(getAssets(),"fonts/DIN Regular.ttf"));
+            location.setText(topTask.getLoc());
+
+            TextView upComingTaskDeadlineTime =(TextView) findViewById(R.id.upcoming_task_deadline_time);
+            upComingTaskDeadlineTime.setTypeface(Typeface.createFromAsset(getAssets(),"fonts/DIN Regular.ttf"));
+            upComingTaskDeadlineTime.setText(String.format("%02d", topTask.getStartTime().getHour()) + ":" + String.format("%02d", topTask.getStartTime().getMinute()));
+
+        }
 
         /**
          *  Refresh task adapter data
