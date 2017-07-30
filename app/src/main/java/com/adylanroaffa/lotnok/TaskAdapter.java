@@ -93,11 +93,11 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskViewHolder
             Date thenD = tasks.get(i).getDueTime().getByDate();
             int remainingDay = (int)( (thenD.getTime() - nowD.getTime()) / (1000 * 60 * 60 * 24));
             //holder.taskEndTime.setText("Due in " + remainingDay + "days");
-            holder.taskEndTime.setText("P " + tasks.get(i).endTime.print());
+            holder.taskEndTime.setText("Until " + tasks.get(i).endTime.print());
 
         } else {
             holder.taskName.setText("" + tasks.get(i).name);
-            holder.taskEndTime.setText("" + tasks.get(i).endTime.print());
+            holder.taskEndTime.setText("Until " + tasks.get(i).endTime.print());
         }
 
     }
